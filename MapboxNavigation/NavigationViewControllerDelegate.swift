@@ -148,6 +148,14 @@ public protocol NavigationViewControllerDelegate: VisualInstructionDelegate {
     optional func navigationViewController(_ navigationViewController: NavigationViewController, didSelect route: Route)
     
     /**
+     Called when RouteProgress is updated from NavigationService.
+     - parameter navigationViewController: The navigation view controller presenting the route that the user selected.
+     - parameter didUpdate: The route on the map that the user selected.
+     */
+    @objc(navigationViewController:didUpdateProgress:withLocation:rawLocation:)
+    optional func navigationViewController(_ navigationViewController: NavigationViewController, didUpdate progress: RouteProgress, with location: CLLocation, rawLocation: CLLocation)
+
+    /**
      Returns the center point of the user course view in screen coordinates relative to the map view.
      */
     @objc optional func navigationViewController(_ navigationViewController: NavigationViewController, mapViewUserAnchorPoint mapView: NavigationMapView) -> CGPoint
